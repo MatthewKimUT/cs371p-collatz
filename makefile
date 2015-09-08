@@ -6,7 +6,7 @@ FILES :=                              \
     RunCollatz.in                     \
     RunCollatz.out                    \
     TestCollatz.c++                   \
-    TestCollatz.out
+    TestCollatz.out	                  \
     TestCollatz.out					  \
     Collatz.c++                       \
     Collatz.h                          
@@ -15,8 +15,7 @@ FILES :=                              \
     #collatz-tests/myk235-TestCollatz.c++ 
     #collatz-tests/myk235-TestCollatz.out 
     #Collatz.log                       
-    #html                              
->>>>>>> dev
+    #html     
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
