@@ -7,12 +7,16 @@ FILES :=                              \
     RunCollatz.out                    \
     TestCollatz.c++                   \
     TestCollatz.out
-    #collatz-tests/EID-RunCollatz.in  \
-    collatz-tests/EID-RunCollatz.out  \
-    collatz-tests/EID-TestCollatz.c++ \
-    collatz-tests/EID-TestCollatz.out \
-    Collatz.log                       \
-    html                              \
+    TestCollatz.out					  \
+    Collatz.c++                       \
+    Collatz.h                          
+	#collatz-tests/myk235-RunCollatz.in   
+    #collatz-tests/myk235-RunCollatz.out  
+    #collatz-tests/myk235-TestCollatz.c++ 
+    #collatz-tests/myk235-TestCollatz.out 
+    #Collatz.log                       
+    #html                              
+>>>>>>> dev
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
