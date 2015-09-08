@@ -1,18 +1,18 @@
 FILES :=                              \
     .travis.yml                       \
-    #collatz-tests/myk235-RunCollatz.in   
-    #collatz-tests/myk235-RunCollatz.out  
-    #collatz-tests/myk235-TestCollatz.c++ 
-    #collatz-tests/myk235-TestCollatz.out 
-    Collatz.c++                       \
-    Collatz.h                         \
-    #Collatz.log                       
-    #html                              
     RunCollatz.c++                    \
     RunCollatz.in                     \
     RunCollatz.out                    \
     TestCollatz.c++                   \
-    TestCollatz.out
+    TestCollatz.out					  \
+    Collatz.c++                       \
+    Collatz.h                          
+	#collatz-tests/myk235-RunCollatz.in   
+    #collatz-tests/myk235-RunCollatz.out  
+    #collatz-tests/myk235-TestCollatz.c++ 
+    #collatz-tests/myk235-TestCollatz.out 
+    #Collatz.log                       
+    #html                              
 
 CXX        := g++-4.8
 CXXFLAGS   := -pedantic -std=c++11 -Wall
