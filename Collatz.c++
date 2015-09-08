@@ -33,9 +33,32 @@ pair<int, int> collatz_read (const string& s) {
 // collatz_eval
 // ------------
 
+
+int cycleLength(int i){
+    assert(i > 0);
+    int count = 1;
+    int num = i;
+    while (num > 1) {
+        if ((num % 2) == 0)
+            num = (num / 2);
+        else
+            num = (3 * num) + 1;
+        count++;
+    }
+    assert(count > 0);
+    return count;
+}
+
 int collatz_eval (int i, int j) {
-    // <your code>
-    return 1;}
+    assert(i > 0 && j > i);
+    int maxLength = -1;
+    for(int c = i; c <= j; c++){
+        int temp = cycleLength(c);
+        if(temp > maxLength)
+            maxLength = temp;
+    }
+    return maxLength;
+}
 
 // -------------
 // collatz_print
