@@ -1,3 +1,6 @@
+/** @file TestCollatz.c++
+ *  @brief Contains unit tests for each method in Collatz.c++
+ */
 // --------------------------------
 // projects/collatz/TestCollatz.c++
 // Copyright (C) 2015
