@@ -41,8 +41,10 @@ int cycleLength(int i){
     while (num > 1) {
         if ((num % 2) == 0)
             num = (num / 2);
-        else
-            num = (3 * num) + 1;
+        else{
+            num = num + (num >> 1) + 1;
+            count++;
+        }
         count++;
     }
     assert(count > 0);
@@ -50,9 +52,26 @@ int cycleLength(int i){
 }
 
 int collatz_eval (int i, int j) {
-    assert(i > 0 && j > i);
+    assert(i > 0 && j > 0);
     int maxLength = -1;
-    for(int c = i; c <= j; c++){
+    int max, min;
+    if(i > j){
+        max = i;
+        min = j;
+    }
+    else if(j > i){
+        max = j;
+        min = i;
+    }
+    else if(j == i)
+        return cycleLength(i);
+    int mid = (max / 2) + 1;
+    int start;
+    if(min < mid)
+        start = mid;
+    else
+        start = min;
+    for(int c = start; c <= max; c++){
         int temp = cycleLength(c);
         if(temp > maxLength)
             maxLength = temp;
