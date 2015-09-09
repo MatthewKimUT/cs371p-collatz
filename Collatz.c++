@@ -13,14 +13,21 @@
 #include <sstream>  // istringstream
 #include <string>   // getline, string
 #include <utility>  // make_pair, pair
-
 #include "Collatz.h"
+#include <vector>
+#include <map>
 
 using namespace std;
 
 // ------------
 // collatz_read
 // ------------
+
+#define CACHE
+
+#ifdef CACHE
+std::map<int, int> cache;
+#endif
 
 pair<int, int> collatz_read (const string& s) {
     istringstream sin(s);
@@ -34,20 +41,35 @@ pair<int, int> collatz_read (const string& s) {
 // ------------
 
 
-int cycleLength(int i){
-    assert(i > 0);
+int cycleLength(int j){
+    assert(j > 0);
+    #ifdef CACHE
+    if(cache.find(j) != cache.end()){
+        return cache[j];
+    }
+    #endif
     int count = 1;
-    int num = i;
+    int num = j;
     while (num > 1) {
-        if ((num % 2) == 0)
+        #ifdef CACHE
+        if(cache.find(num) != cache.end()){
+            count += cache[num] - 1;
+            num = 1;
+        }
+        #endif
+        else if ((num % 2) == 0){
             num = (num / 2);
-        else{
-            num = num + (num >> 1) + 1;
             count++;
         }
-        count++;
+        else{
+            num = num + (num >> 1) + 1;
+            count += 2;
+        }
     }
     assert(count > 0);
+    #ifdef CACHE
+    cache[j] = count;
+    #endif
     return count;
 }
 
