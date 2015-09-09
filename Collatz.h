@@ -1,3 +1,7 @@
+/** @file Collatz.h
+ *	@brief Contains function definitions
+ */
+
 // --------------------------
 // projects/collatz/Collatz.h
 // Copyright (C) 2015

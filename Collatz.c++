@@ -1,3 +1,6 @@
+/** @file Collatz.c++
+ *  @brief Contains function implementations for Collatz project
+ */
 // ----------------------------
 // projects/collatz/Collatz.c++
 // Copyright (C) 2015
@@ -13,8 +16,9 @@
 #include <sstream>  // istringstream
 #include <string>   // getline, string
 #include <utility>  // make_pair, pair
-
 #include "Collatz.h"
+#include <vector>
+#include <map>
 
 using namespace std;
 
@@ -22,32 +26,54 @@ using namespace std;
 // collatz_read
 // ------------
 
-pair<int, int> collatz_read (const string& s) {
+#define CACHE
+
+#ifdef CACHE
+std::map<int, int> cache;
+#endif
+
+pair<int, int> collatz_read(const string& s){
     istringstream sin(s);
     int i;
     int j;
     sin >> i >> j;
-    return make_pair(i, j);}
+    return make_pair(i, j);
+}
 
 // ------------
 // collatz_eval
 // ------------
 
 
-int cycleLength(int i){
-    assert(i > 0);
+int cycleLength(int j){
+    assert(j > 0);
+    #ifdef CACHE
+    if(cache.find(j) != cache.end()){
+        return cache[j];
+    }
+    #endif
     int count = 1;
-    int num = i;
+    int num = j;
     while (num > 1) {
-        if ((num % 2) == 0)
+        #ifdef CACHE
+        if(cache.find(num) != cache.end()){
+            count += cache[num] - 1; //subtract 1 because the count = 1 from the start of the method is now redundant
+            num = 1;
+        }
+        #endif
+        else if ((num % 2) == 0){
             num = (num / 2);
-        else{
-            num = num + (num >> 1) + 1;
             count++;
         }
-        count++;
+        else{
+            num = num + (num >> 1) + 1;
+            count += 2;
+        }
     }
     assert(count > 0);
+    #ifdef CACHE
+    cache[j] = count;
+    #endif
     return count;
 }
 
@@ -65,7 +91,7 @@ int collatz_eval (int i, int j) {
     }
     else if(j == i)
         return cycleLength(i);
-    int mid = (max / 2) + 1;
+    int mid = (max / 2) + 1;//algorithm from class cuts down on amount of cycleLength() computations if the smaller of (i, j) is less than j/2 + 1
     int start;
     if(min < mid)
         start = mid;
@@ -83,18 +109,20 @@ int collatz_eval (int i, int j) {
 // collatz_print
 // -------------
 
-void collatz_print (ostream& w, int i, int j, int v) {
-    w << i << " " << j << " " << v << endl;}
+void collatz_print(ostream& w, int i, int j, int v){
+    w << i << " " << j << " " << v << endl;
+}
 
 // -------------
 // collatz_solve
 // -------------
 
-void collatz_solve (istream& r, ostream& w) {
+void collatz_solve(istream& r, ostream& w){
     string s;
     while (getline(r, s)) {
         const pair<int, int> p = collatz_read(s);
         const int            i = p.first;
         const int            j = p.second;
         const int            v = collatz_eval(i, j);
-        collatz_print(w, i, j, v);}}
+        collatz_print(w, i, j, v);}
+    }

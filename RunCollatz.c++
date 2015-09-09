@@ -1,3 +1,7 @@
+/** @file RunCollatz.c++
+ *	@brief Contains main method for testing with I/O
+ */
+
 // -------------------------------
 // projects/collatz/RunCollatz.c++
 // Copyright (C) 2015

@@ -5,6 +5,9 @@ Commit 4: Committing fixes to unit tests and simple implementation of cycle leng
 Commit 5: Added more unit tests, for an average of 3 per function
 Commit 6: Fixed sphere runtime error with assertion, added ability for i > j and i ==j, and made collatz-solve faster
 Commit 7: Added 100 acceptance tests in RunCollatz.in and RunCollatz.out
+<<<<<<< HEAD
 Commit 8: Added cache code with simplest lazy cache
 Commit 9: Added Doxygen files and Collatz.log
+=======
 Commit 8: Added cache code with simplest lazy cache
+>>>>>>> dev
