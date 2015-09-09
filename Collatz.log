@@ -1,0 +1,9 @@
+Commit 1: First commit - added files from clone of public repo and ran make test
+Commit 2: Changed makefile so Travis would build, added README
+Commit 3: Fixed makefile
+Commit 4: Committing fixes to unit tests and simple implementation of cycle length
+Commit 5: Added more unit tests, for an average of 3 per function
+Commit 6: Fixed sphere runtime error with assertion, added ability for i > j and i ==j, and made collatz-solve faster
+Commit 7: Added 100 acceptance tests in RunCollatz.in and RunCollatz.out
+Commit 8: Added cache code with simplest lazy cache
+Commit 9: Added Doxygen files and Collatz.log
