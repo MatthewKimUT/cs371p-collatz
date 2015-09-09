@@ -44,10 +44,10 @@ TEST(CollatzFixture, read2){
 }
 
 TEST(CollatzFixture, read3){
-    string s("20  sixty\n");
+    string s("30 20\n");
     const pair<int, int> p = collatz_read(s);
-    ASSERT_EQ(20, p.first);
-    ASSERT_EQ(60, p.second);
+    ASSERT_EQ(30, p.first);
+    ASSERT_EQ(20, p.second);
 }
 
 // ----
