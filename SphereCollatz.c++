@@ -1,6 +1,3 @@
-/** @file Collatz.c++
- *  @brief Contains function implementations for Collatz project
- */
 // ----------------------------
 // projects/collatz/Collatz.c++
 // Copyright (C) 2015
@@ -16,7 +13,8 @@
 #include <sstream>  // istringstream
 #include <string>   // getline, string
 #include <utility>  // make_pair, pair
-#include "Collatz.h"
+#include <vector>
+#include <map>
 
 using namespace std;
 
@@ -87,7 +85,7 @@ int collatz_eval (int i, int j) {
     }
     else if(j == i)
         return cycleLength(i);
-    int mid = (max / 2) + 1;//algorithm from class cuts down on amount of cycleLength() computations if the smaller of (i, j) is less than j/2 + 1
+    int mid = (max / 2) + 1;
     int start;
     if(min < mid)
         start = mid;
@@ -98,7 +96,6 @@ int collatz_eval (int i, int j) {
         if(temp > maxLength)
             maxLength = temp;
     }
-    assert(maxLength > 0);
     return maxLength;
 }
 
@@ -123,3 +120,10 @@ void collatz_solve(istream& r, ostream& w){
         const int            v = collatz_eval(i, j);
         collatz_print(w, i, j, v);}
     }
+
+        
+int main(){
+    using namespace std;
+    collatz_solve(cin, cout);
+    return 0;
+}

@@ -8,3 +8,4 @@ Commit 7: Added 100 acceptance tests in RunCollatz.in and RunCollatz.out
 Commit 8: Added cache code with simplest lazy cache
 Commit 9: Added Doxygen files and Collatz.log
 Commit 8: Added cache code with simplest lazy cache
+Commit 9: Created fast caching solution
